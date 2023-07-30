@@ -1,0 +1,94 @@
+.login-container {
+    font-family: sans-serif;
+
+    .header {
+        margin-top: 5px;
+        height: 45px;
+        text-align: right;
+        padding: 5px 100px;
+        // border: 1px solid red;
+
+        button {
+            margin-left: 10px;
+            background: #f9f9f9;
+            padding: 3px 16px;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: #fff;
+            }
+        }
+    }
+
+    .title {
+        font-size  : 35px;
+        font-weight: bold;
+        padding    : 30px 0;
+        text-align: center;
+    }
+
+    .welcome {
+        font-size     : 20px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .content-form {
+        // border: 1px solid green;
+        .form-group {
+            input {
+                margin-bottom: 15px;
+                margin-top: 5px;
+            }
+        }
+
+        .pass-group {
+            position: relative;
+            
+            .icons-eye {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                cursor: pointer;
+            }
+        }
+
+        .btn-submit {
+            width: 100%;
+            color: white;
+            background: black;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            padding: 7px 0;
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+            &:disabled {
+                background-color: #ddd;
+                color: #afafaf;
+                cursor: no-drop;
+            }
+
+            .loaderIcon {
+                margin-right: 7px;
+                color: #03d4f2;
+                top: 2px;
+                animation: spin 1s infinite linear;
+            }
+            
+            @keyframes spin {
+                from {
+                    transform: scale(1) rotate(0deg);
+                }
+                to {
+                    transform: scale(1) rotate(360deg);
+                }
+            }
+        }
+
+        .back {
+            cursor: pointer;
+        }
+    }
+}
