@@ -6,14 +6,14 @@ import { BsPatchMinusFill } from "react-icons/bs";
 import { IoMdRemoveCircleOutline } from "react-icons/io";
 import { RiImageAddFill } from "react-icons/ri";
 import { v4 as uuidv4 } from 'uuid';
-import "./Question.scss"
+import "./QuizQA.scss"
 import _ from 'lodash';
 import Lightbox from "react-awesome-lightbox";
 import { getAllQuizForAdmin } from "../../../../services/apiService";
 import { postCreateNewQuestionForQuiz, postCreateNewAnswerForQuestion } from '../../../../services/apiService';
 import { toast } from 'react-toastify';
 
-const Questions = () => {
+const QuizQA = () => {
     // const options = [
     //     { value: 'chocolate', label: 'Chocolate' },
     //     { value: 'strawberry', label: 'Strawberry' },
@@ -51,9 +51,16 @@ const Questions = () => {
     const [questions, setQuestions] = useState(initQuestions)
     // console.log('questions: ', questions)
 
+    console.log('selected quiz: ', selectedQuiz); //moi khi select no se state cua no dc thay doi
     useEffect(() => {
         fetchQuiz()
     }, [])
+
+    useEffect(() => { //trong hook define bn useEffect cung dc
+
+    }, [selectedQuiz]) //quan sat moi khi selectedQuiz thay doi -> thuc hien logic trong ham` useEffect
+
+
 
     const fetchQuiz = async () => {
         let res = await getAllQuizForAdmin()
@@ -242,8 +249,6 @@ const Questions = () => {
 
     return (
         <div className="questions-container">
-            <div className="title">Manage Questions</div>
-
             <div className="add-new-question">
                 <div className="col-6">
                     <label>Select Quiz:</label>
@@ -351,4 +356,4 @@ const Questions = () => {
     );
 }
 
-export default Questions;
+export default QuizQA;
