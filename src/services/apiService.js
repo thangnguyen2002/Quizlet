@@ -47,16 +47,16 @@ const getUsersPagniate = (page, limit) => {
 }
 
 const postLogin = (email, password) => {
-    return axios.post('api/v1/login', 
-    {
-        email, 
-        password, 
-        delay: 2000
-    }) //hoac {email: email, password: password} cung tuong tu
+    return axios.post('api/v1/login',
+        {
+            email,
+            password,
+            delay: 2000
+        }) //hoac {email: email, password: password} cung tuong tu
 }
 
 const postRegister = (email, password, username) => {
-    return axios.post('api/v1/register', {email, password, username})
+    return axios.post('api/v1/register', { email, password, username })
 }
 
 const getQuizUser = () => {
@@ -69,7 +69,9 @@ const getDataQuiz = (id) => {
 
 const postQuizSubmit = (data) => {
     // console.log('api submit data: ', {...data});
-    return axios.post('api/v1/quiz-submit', {...data}) //neu {data} se sai, truyen len object len server -> dung spread, len hoi group
+    return axios.post('api/v1/quiz-submit', { ...data }) //neu {data} se sai, truyen len object len server -> dung spread, len hoi group
+    //...data la copy toan bo phan tu cua object nay`, thay vi truyen object vao {}
+    //neu de data thi phai bo {} di vi data no da chua object return axios.post('api/v1/quiz-submit', data)
 }
 
 const postCreateNewQuiz = (description, name, difficulty, image) => {
@@ -99,12 +101,25 @@ const postCreateNewAnswerForQuestion = (description, correct_answer, question_id
     })
 }
 
+const postAssignQuiz = (quizId, userId) => {
+    return axios.post('api/v1/quiz-assign-to-user', {
+        quizId, userId
+    })
+}
 
-export { 
-    postCreateNewUser, 
+const getQuizWithQA = (quizId) => {
+    return axios.get(`api/v1/quiz-with-qa/${quizId}`)
+}
+
+const postUpsertQA = (data) => {
+    return axios.post('api/v1/quiz-upsert-qa', { ...data })
+}
+
+export {
+    postCreateNewUser,
     getAllUsers,
     putUpdateUser,
-    deleteUser, 
+    deleteUser,
     getUsersPagniate,
     postLogin,
     postRegister,
@@ -115,6 +130,9 @@ export {
     getAllQuizForAdmin,
     postCreateNewQuestionForQuiz,
     postCreateNewAnswerForQuestion,
+    postAssignQuiz,
+    getQuizWithQA,
+    postUpsertQA
 };
 // export ntn co the export 1 hoac nhieu biến/ham`
 // export default tuc la chi export duy nhat ham` do'

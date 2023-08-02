@@ -1,7 +1,8 @@
 import React from 'react'
-import { getAllQuizForAdmin, getAllUsers } from '../../../../services/apiService'
+import { getAllQuizForAdmin, getAllUsers, postAssignQuiz } from '../../../../services/apiService'
 import { useEffect, useState } from 'react'
 import Select from 'react-select';
+import { toast } from 'react-toastify';
 
 const AssignQuiz = () => {
     const [selectedQuiz, setSelectedQuiz] = useState({})
@@ -31,7 +32,7 @@ const AssignQuiz = () => {
 
     const fetchUsers = async () => { //ngta thuong ko dung async await trong useEffect de dam bao code trong useEffect chay theo tung dong 1
         let res = await getAllUsers() //goi API
-        console.log(res);
+        // console.log(res);
         if (res && res.EC === 0) {
             let users = res.DT.map(item => {
                 return {
@@ -43,6 +44,15 @@ const AssignQuiz = () => {
         }
     }
     // console.log('listUser: ', listUser);
+
+    const handleAssign = async () => {
+        let res = await postAssignQuiz(selectedQuiz.value, selectedUser.value)
+        if (res && res.EC === 0) {
+            toast.success(res.EM)
+        } else {
+            toast.error(res.EM)
+        }
+    }
 
     return (
         <div className='assign-quiz-container row'>
@@ -63,7 +73,10 @@ const AssignQuiz = () => {
                 />
             </div>
             <div>
-                <button className='btn btn-warning mt-3'>Assign</button>
+                <button
+                    className='btn btn-warning mt-3'
+                    onClick={handleAssign}
+                >Assign</button>
             </div>
         </div>
     )
