@@ -5,6 +5,7 @@ import _ from 'lodash';
 import './DetailQuiz.scss'
 import Question from './Question';
 import ModalResult from './ModalResult';
+import RightContent from './Content/RightContent';
 
 const DetailQuiz = () => {
     const [quizData, setQuizData] = useState([])
@@ -87,7 +88,7 @@ const DetailQuiz = () => {
                 return answer //map return 1 array chua cac answer nen co the gan vao question.answer
             })
             // console.log(question.answers);
-            
+
         }
         let index = dataQuizClone.findIndex(question => +question.questionId === +questionId)
         // console.log('index: ', index)
@@ -179,7 +180,9 @@ const DetailQuiz = () => {
             </div>
 
             <div className='content-right'>
-                Count time
+                <RightContent quizData={quizData}
+                    handleSubmitQuiz={handleSubmitQuiz}
+                />
             </div>
             <ModalResult
                 show={showModalResult}
