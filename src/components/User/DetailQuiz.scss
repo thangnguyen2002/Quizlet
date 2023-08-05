@@ -85,6 +85,16 @@
                 &:hover {
                     color: red;
                 }
+
+                &.selected {
+                    //has choose answer
+                    background-color: #c6c6c6;
+                }
+
+                &.clicked {
+                    //has clicked question
+                    color: red;
+                }
             }
         }
     }

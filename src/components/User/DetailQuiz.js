@@ -141,7 +141,7 @@ const DetailQuiz = () => {
         // console.log('payload final: ', payload)
         // submit api
         let res = await postQuizSubmit(payload)
-        console.log('res: ', res)
+        // console.log('res: ', res)
         if (res && res.EC === 0) {
             setDataModalResult({
                 countCorrect: res.DT.countCorrect,
@@ -182,6 +182,7 @@ const DetailQuiz = () => {
             <div className='content-right'>
                 <RightContent quizData={quizData}
                     handleSubmitQuiz={handleSubmitQuiz}
+                    setIndex={setIndex}
                 />
             </div>
             <ModalResult

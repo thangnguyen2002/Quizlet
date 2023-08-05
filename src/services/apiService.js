@@ -115,6 +115,10 @@ const postUpsertQA = (data) => {
     return axios.post('api/v1/quiz-upsert-qa', { ...data })
 }
 
+const postLogOut = (email, refresh_token) => { //logout qua server vi data dc luu duoi database, logout se ko cho browser dung data minh` nua
+    return axios.post('api/v1/logout', { email, refresh_token })
+}
+
 export {
     postCreateNewUser,
     getAllUsers,
@@ -132,7 +136,8 @@ export {
     postCreateNewAnswerForQuestion,
     postAssignQuiz,
     getQuizWithQA,
-    postUpsertQA
+    postUpsertQA,
+    postLogOut
 };
 // export ntn co the export 1 hoac nhieu biến/ham`
 // export default tuc la chi export duy nhat ham` do'

@@ -57,6 +57,13 @@ const Login = () => {
         }
     }
 
+    const handleKeyDown = (e) => {
+        // console.log(e);
+        if (e && e.key === 'Enter') {
+            handleLogin()
+        }
+    }
+
     return (
         <div className="login-container">
             <div className="header">
@@ -75,12 +82,21 @@ const Login = () => {
             <div className="content-form col-4 mx-auto">
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="email"
+                        className="form-control"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        onKeyDown={(event) => handleKeyDown(event)}
+                    />
                 </div>
 
                 <div className="form-group pass-group">
                     <label>Password</label>
-                    <input type={isShowPassword ? 'text' : 'password'} className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type={isShowPassword ? 'text' : 'password'}
+                        className="form-control" value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        onKeyDown={(event) => handleKeyDown(event)}
+                    />
 
                     {isShowPassword ?
                         <span className='icons-eye' onClick={() => setIsShowPassword(false)}>
@@ -96,8 +112,9 @@ const Login = () => {
                 <span className='forgot-pw'>Forgot password?</span>
 
                 <div>
-                    <button className='btn-submit' onClick={handleLogin} disabled={isLoading}>
-                        {isLoading === true && <ImSpinner2 className='loaderIcon'/> }
+                    <button className='btn-submit'
+                        onClick={handleLogin} disabled={isLoading}>
+                        {isLoading === true && <ImSpinner2 className='loaderIcon' />}
                         <span>Log in to Quizzes</span>
                     </button>
                 </div>

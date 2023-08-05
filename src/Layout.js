@@ -12,6 +12,7 @@ import ListQuiz from './components/User/ListQuiz';
 import DetailQuiz from './components/User/DetailQuiz';
 import ManageQuiz from './components/Admin/Content/Quiz/ManageQuiz';
 import Questions from './components/Admin/Content/Question/Questions';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 const NotFound = () => {
     return (
@@ -29,13 +30,21 @@ const Layout = () => {
                     <Route index element={<Home />} />
                     {/* index la props truyen vao, nghia la component path mac dinh theo path cua cha (no se xem con cua App co path nao trung vs ng dung tim kiem ko
                 , neu ko thi dung component Home) */}
-                    <Route path='users' element={<ListQuiz />} />
+                    <Route path='users' element={
+                        <PrivateRoute>
+                            <ListQuiz />
+                        </PrivateRoute>
+                    } />
                     {/* cac component con thi ko can / nua */}
                 </Route>
 
                 <Route path="/quiz/:id" element={<DetailQuiz />} />
 
-                <Route path='/admins' element={<Admin />}>
+                <Route path='/admins' element={
+                    <PrivateRoute>
+                        <Admin />
+                    </PrivateRoute>
+                }>
                     <Route index element={<Dashboard />} />
                     <Route path='manage-users' element={<ManageUser />} />
                     <Route path='manage-quizes' element={<ManageQuiz />} />
@@ -45,7 +54,7 @@ const Layout = () => {
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
 
-                <Route path='*' element={<NotFound />} /> 
+                <Route path='*' element={<NotFound />} />
                 {/* * nghia la neu cac path tren ko match thi` vao component nay */}
             </Routes>
 

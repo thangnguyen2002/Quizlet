@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 const RightContent = (props) => {
-    const { quizData, handleSubmitQuiz } = props
-    const [count, setCount] = useState(10) //5 mins
+    const { quizData, handleSubmitQuiz, setIndex } = props
+    const refDiv = useRef([])
+    const [count, setCount] = useState(300) //5 mins
+
     useEffect(() => {
         if (count === 0) {
             handleSubmitQuiz() //het tgian -> tu dong nop bai
@@ -43,6 +45,42 @@ const RightContent = (props) => {
             .join(":")
     }
 
+    const getClassQuestion = (index, question) => {
+        //check answered
+        if (question && question.answers.length > 0) {
+            let isAnswered = question.answers.find(a => a.isSelected === true) //return valid element in array, otherwise undefined
+            if (isAnswered) {
+                return 'question selected'
+            }
+        }
+        return 'question'
+    }
+
+    const handleClickQuestion = (index, question) => {
+        setIndex(index) //move question
+
+        if (refDiv.current) {
+            // console.log(refDiv.current);
+            refDiv.current.forEach(item => {
+                if (item && item.className === 'question clicked') {
+                    //remove all question class have 'clicked'
+                    item.className = 'question'
+                }
+            })
+        }
+
+        if (question && question.answers.length > 0) {
+            let isAnswered = question.answers.find(a => a.isSelected === true) //return valid element in array, otherwise undefined
+            if (isAnswered) {
+                return //get outa function to avoid set 'click' to class
+                //if already has 'selected' -> not set 'clicked'
+            }
+        }
+
+        //then set 'clicked' class to current div that is clicked
+        refDiv.current[index].className = 'question clicked'
+    }
+
     return (
         <>
             <div className="main-timer">
@@ -53,7 +91,12 @@ const RightContent = (props) => {
                 {quizData && quizData.length > 0
                     && quizData.map((item, index) => {
                         return (
-                            <div className="question" key={`Question-${index}`}>{index + 1}</div>
+                            <div className={getClassQuestion(index, item)}
+                                key={`Question-${index}`}
+                                onClick={() => handleClickQuestion(index, item)}
+                                ref={element => refDiv.current[index] = element}
+                            >{index + 1}
+                            </div>
                         )
                     })}
             </div>
