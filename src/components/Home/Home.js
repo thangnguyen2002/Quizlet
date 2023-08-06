@@ -1,12 +1,15 @@
 import { useSelector } from 'react-redux';
 import videoHome from '../../assets/video-1920.webm'
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const Home = (props) => {
+const Home = () => {
     const isAuthenticated = useSelector(state => state.user.isAuthenticated)
     const navigate = useNavigate()
-
     // console.log(isAuthenticated);
+
+    const { t } = useTranslation();
+    // console.log(t('homepage.title1'));
 
     return (
         <div className='home-container'>
@@ -17,13 +20,19 @@ const Home = (props) => {
             </div>
 
             <div className="home-content">
-                <div className="text-header">There's a better way to ask</div>
-                <div className="text-content">You don't want to make a boring form. And your audience won't answer one. Create a typeform instead—and make everyone happy.</div>
-                {isAuthenticated === false ?
-                    <button className="text-btn" onClick={() => navigate('/login')}>Get started - it's free</button>
-                    :
-                    <button className="text-btn" onClick={() => navigate('/users')}>Doing Quiz</button>
-                }
+                <div className="text-header">
+                    {t('homepage.title1')}
+                </div>
+                <div className="text-content">
+                    {t('homepage.title2')}
+                </div>
+                <div className="title3">
+                    {isAuthenticated === false ?
+                        <button className="text-btn" onClick={() => navigate('/login')}>{t('homepage.title3')}</button>
+                        :
+                        <button className="text-btn" onClick={() => navigate('/users')}>Doing Quiz</button>
+                    }
+                </div>
             </div>
         </div>
     );

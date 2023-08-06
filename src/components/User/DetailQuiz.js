@@ -47,6 +47,9 @@ const DetailQuiz = () => {
                         answers.push(item.answers)
                         // console.log('item: ', item)
                     })
+                    //sap xep lai cau tra loi theo id, thu tu asc la tang dan (lodash order by)
+                    answers = _.orderBy(answers, ['id'], ['asc'])
+
                     // console.log('value: ', value)
                     return { questionId: key, questionDesc, answers, image } //key:value giong nhau nen viet tat nhu nay cung dc
                 })

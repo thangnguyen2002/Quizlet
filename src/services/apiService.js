@@ -119,6 +119,10 @@ const postLogOut = (email, refresh_token) => { //logout qua server vi data dc lu
     return axios.post('api/v1/logout', { email, refresh_token })
 }
 
+const getOverView = () => {
+    return axios.get('api/v1/overview')
+}
+
 export {
     postCreateNewUser,
     getAllUsers,
@@ -137,7 +141,8 @@ export {
     postAssignQuiz,
     getQuizWithQA,
     postUpsertQA,
-    postLogOut
+    postLogOut,
+    getOverView
 };
 // export ntn co the export 1 hoac nhieu biến/ham`
 // export default tuc la chi export duy nhat ham` do'

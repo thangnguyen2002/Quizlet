@@ -9,6 +9,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import Layout from './Layout';
 import { PersistGate } from 'redux-persist/integration/react'
 import "react-awesome-lightbox/build/style.css";
+import './utils/i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

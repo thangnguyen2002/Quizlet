@@ -1,0 +1,43 @@
+.dashboard-container {
+    padding: 14px 38px;
+
+    .title {
+        font-size  : 26px;
+        font-weight: 600;
+    }
+
+    .content {
+        margin-top: 20px;
+        display   : flex;
+        gap       : 20px;
+
+        .c-left {
+            width    : 50%;
+            display  : flex;
+            gap      : 20px;
+            flex-wrap: wrap;
+
+            .child {
+                width             : calc(50% - 10px);
+                //vi tren gap 20px nen moi child ta - di 10px, 2 child la 20px -> sẽ đủ chỗ, ko bị xuống dòng
+                padding           : 70px;
+                // height         : 200px;
+                border            : 1px solid #ccc;
+                display           : flex;
+                justify-content   : center;
+                align-items       : center;
+                border-radius     : 10px;
+                flex-direction    : column;
+
+                .text2 {
+                    font-size: 25px;
+                }
+            }
+        }
+
+        .c-right {
+            width : 50%;
+            height: 400px;
+        }
+    }
+}

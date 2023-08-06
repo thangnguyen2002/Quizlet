@@ -7,6 +7,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { postLogOut } from '../../services/apiService';
 import { doLogOut } from '../../redux/action/userAction';
 import { toast } from 'react-toastify';
+import Language from './Language';
 
 const Header = () => {
   const navigate = useNavigate()
@@ -57,7 +58,7 @@ const Header = () => {
             {isAuthenticated === false ?
               <>
                 <button className='btn-login' onClick={handleLogin}>Log in</button>
-                <button className='btn-signup' onClick={handleRegister}>Sign up</button>
+                <button className='btn-signup' onClick={handleRegister} style={{ marginRight: 10 }}>Sign up</button>
               </>
               :
               <NavDropdown title="Settings" id="basic-nav-dropdown">
@@ -66,6 +67,9 @@ const Header = () => {
                 <NavDropdown.Item onClick={handleLogOut}>Log out</NavDropdown.Item>
               </NavDropdown>
             }
+
+            <Language />
+
           </Nav>
         </Navbar.Collapse>
       </Container>

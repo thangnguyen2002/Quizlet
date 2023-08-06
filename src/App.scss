@@ -17,6 +17,13 @@ body {
   }
 }
 
+.language {
+  .dropdown-toggle::after {
+    //search: boostrap hide arrow dropdown
+    display: none;
+  }
+}
+
 .app-container {
   .header-container {
     .btn-login {
