@@ -8,10 +8,10 @@ const Language = () => {
 
   const handleChangeLanguage = (language) => {
     i18n.changeLanguage(language)
-    // console.log('i18n.changeLanguage: ', i18n.changeLanguage);
+    // console.log('i18n.changeLanguage: ', i18n.changeLanguage); //to change language
   }
 
-  // console.log('i18n.language: ', i18n.language);
+  // console.log('i18n.language: ', i18n.language); //get current language
 
   return (
     <>
