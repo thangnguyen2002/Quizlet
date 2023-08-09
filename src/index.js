@@ -10,6 +10,7 @@ import Layout from './Layout';
 import { PersistGate } from 'redux-persist/integration/react'
 import "react-awesome-lightbox/build/style.css";
 import './utils/i18n';
+import 'react-tabs/style/react-tabs.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

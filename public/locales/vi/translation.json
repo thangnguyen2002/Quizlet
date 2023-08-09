@@ -1,10 +1,47 @@
 {
     "homepage": {
         "title1": "Luôn có cách tốt hơn để hỏi...",
-        "title2": "Bạn không muốn làm một hình thức nhàm chán. Và khán giả của bạn sẽ không trả lời một. Thay vào đó, hãy tạo một kiểu chữ—và làm cho mọi người hài lòng.",
+        "title2": "Bạn không muốn làm một hình thức nhàm chán. Và khán giả của bạn sẽ không trả lời một",
         "title3": {
-            "login": "Hãy bắt đầu - hoàn toàn miễn phí"
+            "login": "Bắt đầu ngay"
         }
-
+    },
+    "login": {
+        "title1": "Chưa có tài khoản?",
+        "title2": "Đăng ký",
+        "title3": "Xin chào, bạn là ai?",
+        "title4": "Mật khẩu",
+        "title5": "Quên mật khẩu?",
+        "title6": "Đăng nhập vào Quizzes",
+        "title7": "Về trang chủ"
+    },
+    "signup": {
+        "title1": "Đã có tài khoản?",
+        "title2": "Đăng nhập",
+        "title3": "Muốn bắt đầu hành trình?",
+        "title4": "Mật khẩu",
+        "title5": "Tên người dùng",
+        "title6": "Tạo tài khoản miễn phí",
+        "title7": "Về trang chủ"
+    },
+    "header": {
+        "title1": "Trang chủ",
+        "title2": "Người dùng",
+        "title3": "Quản trị",
+        "title4": "Đăng nhập",
+        "title5": "Đăng ký",
+        "title6": "Thông tin",
+        "title7": "Đăng xuất"
+    },
+    "detailQuiz": {
+        "title1": "Trang chủ",
+        "title2": "Người dùng",
+        "title3": "Làm bài Quiz"
+    },
+    "profile": {
+        "title1": "Quản lý thông tin người dùng",
+        "title2": "Thông tin",
+        "title3": "Mật khẩu",
+        "title4": "Lịch sử"
     }
 }

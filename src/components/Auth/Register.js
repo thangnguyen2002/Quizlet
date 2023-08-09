@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { RiEyeCloseFill } from "react-icons/ri"
 import { ImEye } from "react-icons/im"
 import Language from '../Header/Language';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -14,6 +15,7 @@ const Register = () => {
     const [username, setUsername] = useState('')
 
     const [isShowPassword, setIsShowPassword] = useState(false)
+    const { t } = useTranslation();
 
     const validateEmail = (email) => { //ham nay return true neu email dung
         return String(email)
@@ -58,8 +60,8 @@ const Register = () => {
     return (
         <div className="register-container">
             <div className="header">
-                <span>Already have an account?</span>
-                <button className='sign-up' onClick={() => navigate('/login')}>Log in</button>
+                <span>{t('signup.title1')}</span>
+                <button className='sign-up' onClick={() => navigate('/login')}>{t('signup.title2')}</button>
                 <Language />
             </div>
 
@@ -68,7 +70,7 @@ const Register = () => {
             </div>
 
             <div className="welcome">
-                Start your journey?
+                {t('signup.title3')}
             </div>
 
             <div className="content-form col-4 mx-auto">
@@ -83,7 +85,7 @@ const Register = () => {
                 </div>
 
                 <div className="form-group pass-group">
-                    <label>Password (*)</label>
+                    <label>{t('signup.title4')} (*)</label>
                     <input type={isShowPassword ? 'text' : 'password'}
                         className="form-control" value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -102,7 +104,7 @@ const Register = () => {
                 </div>
 
                 <div className="form-group">
-                    <label>Username</label>
+                    <label>{t('signup.title5')}</label>
                     <input type="text"
                         className="form-control"
                         value={username}
@@ -112,11 +114,11 @@ const Register = () => {
                 </div>
 
                 <div>
-                    <button className='btn-submit' onClick={handleLogin}>Create my free account</button>
+                    <button className='btn-submit' onClick={handleLogin}>{t('signup.title6')}</button>
                 </div>
 
                 <div className='text-center'>
-                    <span className='back' onClick={() => navigate('/')}>&lt;&lt; Go to home page</span>
+                    <span className='back' onClick={() => navigate('/')}>&lt;&lt; {t('signup.title7')}</span>
                 </div>
             </div>
 

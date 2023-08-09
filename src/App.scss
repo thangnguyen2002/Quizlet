@@ -26,6 +26,23 @@ body {
 
 .app-container {
   .header-container {
+    .header-icon {
+      color       : #00bfff;
+      font-size   : 30px;
+      margin-right: 10px;
+      animation   : spinIcon infinite 5s linear;
+    }
+
+    @keyframes spinIcon {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     .btn-login {
       border-radius: 5px;
       margin-right : 15px;
@@ -62,6 +79,8 @@ body {
 }
 
 .home-container {
+
+
   .home-content {
     position      : relative;
     padding       : 117px;

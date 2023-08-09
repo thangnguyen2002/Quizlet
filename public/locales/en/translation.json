@@ -1,10 +1,50 @@
 {
     "homepage": {
         "title1": "There's a better way to ask",
-        "title2": "You don't want to make a boring form. And your audience won't answer one. Create a typeform instead—and make everyone happy.",
+        "title2": "You don't want to make a boring form. And your audience won't answer one",
         "title3": {
             "login": "Get started - it's free"
-        }
-
+        },
+        "title4": "Doing Quiz"
+    },
+    "login": {
+        "title1": "Don't you have an account yet?",
+        "title2": "Sign up",
+        "title3": "Hello, who's this?",
+        "title4": "Password",
+        "title5": "Forgot password?",
+        "title6": "Log in to Quizzes",
+        "title7": "Go to home page"
+    },
+    "signup": {
+        "title1": "Already have an account?",
+        "title2": "Log in",
+        "title3": "Start your journey?",
+        "title4": "Password",
+        "title5": "Username",
+        "title6": "Create my free account",
+        "title7": "Go to home page"
+    },
+    "header": {
+        "title1": "Home",
+        "title2": "Users",
+        "title3": "Admin",
+        "title4": "Log in",
+        "title5": "Sign up",
+        "title6": "Profile",
+        "title7": "Log out"
+    },
+    "detailQuiz": {
+        "title1": "Home",
+        "title2": "Users",
+        "title3": "Doing Quiz"
+    },
+    "profile": {
+        "title1": "User Profile Management",
+        "title2": "Main Infor",
+        "title3": "Password",
+        "title4": "History"
     }
+
+
 }

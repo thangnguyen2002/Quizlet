@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
 import { getDataQuiz, postQuizSubmit } from '../../services/apiService';
 import _ from 'lodash';
 import './DetailQuiz.scss'
 import Question from './Question';
 import ModalResult from './ModalResult';
 import RightContent from './Content/RightContent';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import { useTranslation } from 'react-i18next';
 
 const DetailQuiz = () => {
     const [quizData, setQuizData] = useState([])
@@ -15,6 +17,7 @@ const DetailQuiz = () => {
 
     const location = useLocation()
     // console.log(location);
+    const { t } = useTranslation();
 
     const params = useParams()
     // console.log('params: ', params)
@@ -158,42 +161,58 @@ const DetailQuiz = () => {
     }
 
     return (
-        <div className='q-detail-container'>
-            <div className='content-left'>
-                <div className="q-title">
-                    Quiz {quizId}: {location?.state?.description}
-                </div>
-                <hr />
+        <>
+            <Breadcrumb className='quiz-detail-new-header'>
+                <NavLink to='/' className='breadcrum-item'>
+                    {t('detailQuiz.title1')}
+                </NavLink>
+                <span> / </span>
+                <NavLink to='/users' className='breadcrum-item'>
+                    {t('detailQuiz.title2')}
+                </NavLink>
+                <span style={{ marginRight: '16px' }}> / </span>
+                <Breadcrumb.Item active>
+                    {t('detailQuiz.title3')}
+                </Breadcrumb.Item>
+            </Breadcrumb>
 
-                <div className="q-content">
-                    <Question
-                        handleCheckBox={handleCheckBox}
-                        index={index}
-                        data={quizData && quizData.length > 0 ?
-                            quizData[index]
-                            : []}
+            <div className='q-detail-container'>
+                <div className='content-left'>
+                    <div className="q-title">
+                        Quiz {quizId}: {location?.state?.description}
+                    </div>
+                    <hr />
+
+                    <div className="q-content">
+                        <Question
+                            handleCheckBox={handleCheckBox}
+                            index={index}
+                            data={quizData && quizData.length > 0 ?
+                                quizData[index]
+                                : []}
+                        />
+                    </div>
+
+                    <div className="footer">
+                        <button className='btn btn-secondary' onClick={handlePrev}>Prev</button>
+                        <button className='btn btn-primary' onClick={handleNext}>Next</button>
+                        <button className='btn btn-danger' onClick={handleSubmitQuiz}>Finish</button>
+                    </div>
+                </div>
+
+                <div className='content-right'>
+                    <RightContent quizData={quizData}
+                        handleSubmitQuiz={handleSubmitQuiz}
+                        setIndex={setIndex}
                     />
                 </div>
-
-                <div className="footer">
-                    <button className='btn btn-secondary' onClick={handlePrev}>Prev</button>
-                    <button className='btn btn-primary' onClick={handleNext}>Next</button>
-                    <button className='btn btn-danger' onClick={handleSubmitQuiz}>Finish</button>
-                </div>
-            </div>
-
-            <div className='content-right'>
-                <RightContent quizData={quizData}
-                    handleSubmitQuiz={handleSubmitQuiz}
-                    setIndex={setIndex}
+                <ModalResult
+                    show={showModalResult}
+                    setShow={setShowModalResult}
+                    dataModalResult={dataModalResult}
                 />
             </div>
-            <ModalResult
-                show={showModalResult}
-                setShow={setShowModalResult}
-                dataModalResult={dataModalResult}
-            />
-        </div>
+        </>
     );
 }
 

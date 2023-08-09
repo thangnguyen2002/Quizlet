@@ -28,9 +28,9 @@ const Home = () => {
                 </div>
                 <div className="title3">
                     {isAuthenticated === false ?
-                        <button className="text-btn" onClick={() => navigate('/login')}>{t('homepage.title3')}</button>
+                        <button className="text-btn" onClick={() => navigate('/login')}>{t('homepage.title3.login')}</button>
                         :
-                        <button className="text-btn" onClick={() => navigate('/users')}>Doing Quiz</button>
+                        <button className="text-btn" onClick={() => navigate('/users')}>{t('homepage.title4')}</button>
                     }
                 </div>
             </div>

@@ -1,8 +1,14 @@
 .quiz-container {
+
     // padding: 20px;
+    ul.react-tabs__tab-list {
+        margin-top : 10px;
+        margin-left: 345px;
+        font-size  : 17px;
+    }
 
     .title {
-        font-size: 30px;
+        font-size  : 30px;
         font-weight: 600;
     }
 
